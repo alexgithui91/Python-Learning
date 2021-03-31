@@ -16,9 +16,10 @@ username = os.environ.get('emailUsername')
 password = os.environ.get('emailPassword')
 senderEmail = os.environ.get('emailAccount')
 toEmails = os.environ.get('toEmails').split(",")
+website = os.environ.get('websiteName')
 host = os.environ.get('host')
 port = os.environ.get('port')
-emailSubject = "Code Tester Githui Account Subscription"
+emailSubject = "Code Tester HitzCommitted Account Subscription"
 
 
 def emailSender(emailSubject, emailBody, toEmails, html=None):
@@ -35,7 +36,7 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
     if html is not None:
         # It will always take the HTML over the plain text
         # MIMEText("<h1> This is working...</h1>", 'html')
-        htmlHeader = '<h1>' + html + '</h1>'
+        htmlHeader = '<h3>' + html + '</h3>'
         htmlPart = MIMEText(htmlHeader, 'html')
         msg.attach(htmlPart)
 
@@ -51,9 +52,9 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
 
 
 def messageFormatter(myName=None, myWebsite=None):
-    msgTemplate = """ Hello {name},
-    Thank you for joining the email chain for {website}.
-    We are very happy to have you with us.
+    msgTemplate = """Hello {name}, 
+    <br>Thank you for joining the email chain for {website}. 
+    <br>We are very happy to have you with us.
     """
 
     messageBody = msgTemplate.format(name=myName, website=myWebsite)
@@ -73,7 +74,7 @@ def sendEmail(name, website=None, toEmails=None, verbose=False):
 
     # Send message
     try:
-        emailSender(emailSubject, msg, toEmails, html=None)
+        emailSender(emailSubject, msg, toEmails, html=msg)
         sent = True
     except BaseException:
         sent = False
@@ -82,4 +83,4 @@ def sendEmail(name, website=None, toEmails=None, verbose=False):
 
 if __name__ == "__main__":
     name = "Alex"
-    sendEmail(name, website=None, toEmails=toEmails, verbose=False)
+    sendEmail(name, website=website, toEmails=toEmails, verbose=True)
