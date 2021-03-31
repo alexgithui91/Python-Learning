@@ -17,3 +17,10 @@ Quick lesson references I use when teaching beginners coding.
   - ```python
     pip install -U python-dotenv
     ```
+
+  - ```python
+    from dotenv import load_dotenv
+    load_dotenv()
+    ```
+
+    
