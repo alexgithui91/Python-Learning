@@ -5,31 +5,29 @@ Created : 2021-03-31
 '''
 
 import smtplib
+from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 username = 'codetestergithui@gmail.com'
 password = 'codetester'
 senderEmail = 'Code Tester Githui <codetestergithui@gmail.com>'
-toEmails = ['alexgithui91@gmail.com']
 
 
-def emailSender(
-        text='Email Body',
-        subject='Hello World',
-        fromEmail=senderEmail,
-        toEmails=toEmails):
+def emailSender(emailSubject, emailBody, toEmails, html=None):
     assert isinstance(toEmails, list)
 
     msg = MIMEMultipart('alternative')
     msg['From'] = senderEmail
     msg['To'] = ", ".join(toEmails)
-    msg['Subject'] = subject
+    msg['Subject'] = emailSubject
 
-    txtPart = MIMEMultipart(text, 'plain')
+    txtPart = MIMEText(emailBody, 'plain')
     msg.attach(txtPart)
 
-    htmlPart = MIMEMultipart("<h1> This is working...</h1>", 'html')
-    msg.attach(htmlPart)
+    if html is not None:
+        # It will always take the HTML over the plain text
+        htmlPart = MIMEText("<h1> This is working...</h1>", 'html')
+        msg.attach(htmlPart)
 
     msgStr = msg.as_string()
 
@@ -38,8 +36,17 @@ def emailSender(
     server.ehlo()
     server.starttls()
     server.login(username, password)
-    server.sendmail(fromEmail, toEmails, msgStr)
+    server.sendmail(senderEmail, toEmails, msgStr)
     server.quit()
 
 
-emailSender()
+# Ask for email subject
+emailSubject = input("Enter email subject : ")
+# Ask for email body/contents
+emailBody = input("Enter email body : ")
+# Enter HTML contents
+html = input("Enter HTML contents : ")
+# Enter email addresses
+toEmails = ['alexgithui91@gmail.com']
+
+emailSender(emailSubject, emailBody, toEmails, html)
