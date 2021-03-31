@@ -26,7 +26,9 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
 
     if html is not None:
         # It will always take the HTML over the plain text
-        htmlPart = MIMEText("<h1> This is working...</h1>", 'html')
+        # MIMEText("<h1> This is working...</h1>", 'html')
+        htmlHeader = '<h1>' + html + '</h1>'
+        htmlPart = MIMEText(htmlHeader, 'html')
         msg.attach(htmlPart)
 
     msgStr = msg.as_string()
