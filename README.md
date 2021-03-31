@@ -12,3 +12,8 @@ Quick lesson references I use when teaching beginners coding.
     autopep8 --in-place --aggressive --aggressive <filename>
     ```
 
+- To keep passwords safe we can make use of python-dotenv. This allows you to store passwords in a .env file which should be added to the .gitignore file.
+
+  - ```python
+    pip install -U python-dotenv
+    ```
