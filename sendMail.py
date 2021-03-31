@@ -48,6 +48,17 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
     server.quit()
 
 
+def messageFormatter(myName, myWebsite):
+    msgTemplate = """ Hello {name},
+    Thank you for joining the email chain for {website}.
+    We are very happy to have you with us.
+    """
+
+    messageBody = msgTemplate.format(name=myName, website=myWebsite)
+
+    return messageBody
+
+
 # Ask for email subject
 emailSubject = input("Enter email subject : ")
 # Ask for email body/contents
