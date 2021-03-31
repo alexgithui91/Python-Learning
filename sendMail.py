@@ -51,4 +51,4 @@ html = input("Enter HTML contents : ")
 # Enter email addresses
 toEmails = ['alexgithui91@gmail.com']
 
-emailSender(emailSubject, emailBody, toEmails, html)
+# emailSender(emailSubject, emailBody, toEmails, html)
