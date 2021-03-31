@@ -5,12 +5,15 @@ Created : 2021-03-31
 '''
 
 import smtplib
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
+load_dotenv()
 
-username = 'codetestergithui@gmail.com'
-password = 'codetester'
-senderEmail = 'Code Tester Githui <codetestergithui@gmail.com>'
+username = os.environ.get('emailUsername')
+password = os.environ.get('emailPassword')
+senderEmail = os.environ.get('emailAccount')
 
 
 def emailSender(emailSubject, emailBody, toEmails, html=None):
@@ -51,4 +54,4 @@ html = input("Enter HTML contents : ")
 # Enter email addresses
 toEmails = ['alexgithui91@gmail.com']
 
-# emailSender(emailSubject, emailBody, toEmails, html)
+emailSender(emailSubject, emailBody, toEmails, html)
