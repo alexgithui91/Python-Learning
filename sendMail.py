@@ -6,6 +6,7 @@ Created : 2021-03-31
 
 import smtplib
 import os
+import sys
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
@@ -17,6 +18,7 @@ senderEmail = os.environ.get('emailAccount')
 toEmails = os.environ.get('toEmails').split(",")
 host = os.environ.get('host')
 port = os.environ.get('port')
+emailSubject = "Code Tester Githui Account Subscription"
 
 
 def emailSender(emailSubject, emailBody, toEmails, html=None):
@@ -24,7 +26,7 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
 
     msg = MIMEMultipart('alternative')
     msg['From'] = senderEmail
-    msg['To'] = "".join(toEmails)
+    msg['To'] = " ".join(toEmails)
     msg['Subject'] = emailSubject
 
     txtPart = MIMEText(emailBody, 'plain')
@@ -48,7 +50,7 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
     server.quit()
 
 
-def messageFormatter(myName, myWebsite):
+def messageFormatter(myName=None, myWebsite=None):
     msgTemplate = """ Hello {name},
     Thank you for joining the email chain for {website}.
     We are very happy to have you with us.
@@ -59,11 +61,25 @@ def messageFormatter(myName, myWebsite):
     return messageBody
 
 
-# Ask for email subject
-emailSubject = input("Enter email subject : ")
-# Ask for email body/contents
-emailBody = input("Enter email body : ")
-# Enter HTML contents
-html = input("Enter HTML contents : ")
+def sendEmail(name, website=None, toEmails=None, verbose=False):
+    assert toEmails is not None
+    if website is not None:
+        msg = messageFormatter(name, website)
+    else:
+        msg = messageFormatter(name)
 
-emailSender(emailSubject, emailBody, toEmails, html)
+    if verbose:
+        print(name, website, toEmails)
+
+    # Send message
+    try:
+        emailSender(emailSubject, msg, toEmails, html=None)
+        sent = True
+    except BaseException:
+        sent = False
+    return sent
+
+
+if __name__ == "__main__":
+    name = "Alex"
+    sendEmail(name, website=None, toEmails=toEmails, verbose=False)
