@@ -24,7 +24,7 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
 
     msg = MIMEMultipart('alternative')
     msg['From'] = senderEmail
-    msg['To'] = ", ".join(toEmails)
+    msg['To'] = "".join(toEmails)
     msg['Subject'] = emailSubject
 
     txtPart = MIMEText(emailBody, 'plain')
@@ -54,7 +54,5 @@ emailSubject = input("Enter email subject : ")
 emailBody = input("Enter email body : ")
 # Enter HTML contents
 html = input("Enter HTML contents : ")
-# Enter email addresses
-toEmails = ['alexgithui91@gmail.com']
 
 emailSender(emailSubject, emailBody, toEmails, html)
