@@ -14,6 +14,9 @@ load_dotenv()
 username = os.environ.get('emailUsername')
 password = os.environ.get('emailPassword')
 senderEmail = os.environ.get('emailAccount')
+toEmails = os.environ.get('toEmails').split(",")
+host = os.environ.get('host')
+port = os.environ.get('port')
 
 
 def emailSender(emailSubject, emailBody, toEmails, html=None):
@@ -37,7 +40,7 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
     msgStr = msg.as_string()
 
     # Login to the smtp server
-    server = smtplib.SMTP(host='smtp.gmail.com', port=587)
+    server = smtplib.SMTP(host=host, port=port)
     server.ehlo()
     server.starttls()
     server.login(username, password)
