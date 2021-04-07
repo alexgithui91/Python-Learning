@@ -10,7 +10,6 @@ import email
 from dotenv import load_dotenv
 load_dotenv()
 
-
 host = os.environ.get('hostRead')
 username = os.environ.get('emailUsername')
 password = os.environ.get('emailPassword')

@@ -11,7 +11,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 load_dotenv()
-
 username = os.environ.get('emailUsername')
 password = os.environ.get('emailPassword')
 senderEmail = os.environ.get('emailAccount')
@@ -52,8 +51,8 @@ def emailSender(emailSubject, emailBody, toEmails, html=None):
 
 
 def messageFormatter(myName=None, myWebsite=None):
-    msgTemplate = """Hello {name}, 
-    <br>Thank you for joining the email chain for {website}. 
+    msgTemplate = """Hello {name},
+    <br>Thank you for joining the email chain for {website}.
     <br>We are very happy to have you with us.
     """
 
@@ -82,5 +81,5 @@ def sendEmail(name, website=None, toEmails=None, verbose=False):
 
 
 if __name__ == "__main__":
-    name = "Alex"
+    name = "Test User"
     sendEmail(name, website=website, toEmails=toEmails, verbose=True)
