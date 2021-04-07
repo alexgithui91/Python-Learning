@@ -1,7 +1,7 @@
 '''
 Author : Alex Githui
 Purpose : Read from a file
-Created : 2021-03-31
+Created : 2021-04-07
 '''
 
 import os
