@@ -17,7 +17,7 @@ password = os.environ.get('emailPassword')
 senderEmail = os.environ.get('emailAccount')
 toEmails = os.environ.get('toEmails').split(",")
 website = os.environ.get('websiteName')
-host = os.environ.get('host')
+host = os.environ.get('hostSend')
 port = os.environ.get('port')
 emailSubject = "Code Tester HitzCommitted Account Subscription"
 
