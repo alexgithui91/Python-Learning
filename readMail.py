@@ -18,7 +18,7 @@ password = os.environ.get('emailPassword')
 
 def getInbox():
     mail = imaplib.IMAP4_SSL(host)
-    mail.login(username,password)
+    mail.login(username, password)
     mail.select("inbox")
     _, searchData = mail.search(None, 'UNSEEN')
     myMessage = []
@@ -30,7 +30,7 @@ def getInbox():
         emailMessage = email.message_from_bytes(b)
 
         for header in ['subject', 'to', 'from', 'date']:
-            print("{}: {}".format(header,emailMessage[header]))
+            print("{}: {}".format(header, emailMessage[header]))
             emailData[header] = emailMessage[header]
 
         for part in emailMessage.walk():
@@ -42,8 +42,9 @@ def getInbox():
                 emailData['htmlBody'] = htmlBody.decode()
 
         myMessage.append(emailData)
-    
+
     return myMessage
+
 
 if __name__ == "__main__":
     myInbox = getInbox()
