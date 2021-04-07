@@ -6,8 +6,7 @@ Created : 2021-03-31
 
 import os
 
-filePath = os.path.abspath(__file__)
-BASE_DIR = os.path.dirname(filePath)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 emailTxt = os.path.join(BASE_DIR, "templates", "email.txt")
 
