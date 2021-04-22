@@ -1,4 +1,4 @@
-# Python-Learning
+# Python Learning
 Quick lesson references I use when teaching beginners coding.
 
 - Start by creating a Virtual Environment. Makes it easy to keep track of Python package installs.
