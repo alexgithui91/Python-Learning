@@ -12,6 +12,16 @@ Quick lesson references I use when teaching beginners coding.
     autopep8 --in-place --aggressive --aggressive <filename>
     ```
 
+    
+
+  - ```json
+    Adding python path and enabling linting in setting.json
+    {
+        "python.pythonPath": "venv/bin/python",
+        "python.linting.pylintEnable": true
+    }
+    ```
+
 - To keep passwords safe we can make use of python-dotenv. This allows you to store passwords in a .env file which should be added to the .gitignore file.
 
   - ```python
