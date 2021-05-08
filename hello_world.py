@@ -1,7 +1,4 @@
-greeting = "Hello Welcome to Python3 "
+# Simple Hello Word
 
-userName = input("Enter your name: ")
-
-combinedStatement = greeting + userName.upper()
-
-print(combinedStatement)
+if __name__ == "__main__":
+    print("Hello, world!!")
