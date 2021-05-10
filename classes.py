@@ -10,9 +10,15 @@ class Dog():
         self.age = age
 
     # Instance method
-    def description():
+    def __str__(self):
         return f"{self.name} is {self.age} years old! And is {self.species}"
 
     # Another Instance method
     def speak(self, sound):
         return f"{self.name} says {sound}"
+
+
+boscoe = Dog("Boscoe", 4)
+print(boscoe)
+# print(boscoe.description())
+print(boscoe.speak("Woof Woooof"))
