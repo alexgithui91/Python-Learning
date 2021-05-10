@@ -1,3 +1,4 @@
+# Day 0
 input_string = input("Enter something to print : ")
 
 print("Hello World!!")
