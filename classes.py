@@ -18,16 +18,20 @@ class Dog():
     def speak(self, sound):
         return f"{self.name} barks : {sound}!!!"
 
+
 class JackRussellTerrier(Dog):
     def speak(self, sound="Arf"):
         # return f"{self.name} says {sound}"
         return super().speak(sound)
 
+
 class Dachshund(Dog):
     pass
 
+
 class Bulldog(Dog):
     pass
+
 
 boscoe = JackRussellTerrier("Boscoe", 3)
 print(boscoe)
