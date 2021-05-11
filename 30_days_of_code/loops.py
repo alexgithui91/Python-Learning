@@ -11,5 +11,5 @@ import sys
 
 if __name__ == '__main__':
     n = int(input().strip())
-    for num in range(1,11):
-        print(str(n) +" x "+ str(num) +" = "+ str(n * num))
+    for num in range(1, 11):
+        print(str(n) + " x " + str(num) + " = " + str(n * num))
