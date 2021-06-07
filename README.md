@@ -1,4 +1,5 @@
 # Python Learning
+
 Quick lesson references I use when teaching beginners coding.
 
 - Start by creating a Virtual Environment. Makes it easy to keep track of Python package installs.
@@ -11,8 +12,6 @@ Quick lesson references I use when teaching beginners coding.
     pip install --upgrade autopep8
     autopep8 --in-place --aggressive --aggressive <filename>
     ```
-
-    
 
   - ```json
     Adding python path and enabling linting in setting.json
@@ -32,5 +31,3 @@ Quick lesson references I use when teaching beginners coding.
     from dotenv import load_dotenv
     load_dotenv()
     ```
-
-    
