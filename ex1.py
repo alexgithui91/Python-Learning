@@ -1,3 +1,5 @@
+# Simple program showing to perform basic print commands
+
 print("Hello World")
 print("Hello World Again!")
 print("I like typing this")
