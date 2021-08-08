@@ -6,6 +6,7 @@ I'll show a list:
 \t* Cat food
 \t* Dewormer
 \t* Cat litre\n\t* Cat brush
+\t* Added some extra lines
 """
 
 print(tabby_cat)
